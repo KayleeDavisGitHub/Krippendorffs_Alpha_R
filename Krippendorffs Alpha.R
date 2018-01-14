@@ -64,7 +64,7 @@ head(results)
 ##
 ##  These testing data give the same result, so plotting the bootstrap is unintuitive
 ##
-
+#! not ran:
 quantile(results,  probs = c(.1, .5, .9))
 
 library(ggplot2)
