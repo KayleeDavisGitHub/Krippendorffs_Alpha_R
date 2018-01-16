@@ -1,8 +1,6 @@
 #### Krippendorffs Alpha R
-Calculating Krippendorff's Alpha in R, with example and some exploration.
-
-Please follow the in-code citation guidelines for both the package used and assocated scholarly work.
+Calculating Krippendorff's Alpha in R, with example and some exploration. Future versions will add more examples, more reliability coefficients, and a .pdf explaining how these calculations are done (and what they tell us). 
 
 
-### Licensing
-The content of this project itself is licensed under the [Creative Commons Attribution 3.0 license](https://creativecommons.org/licenses/by/3.0/us/deed.en_US). Please check licensing information for underlying LaTeX and R source coding. Be sure to cite package and coding content creators when applicable. 
+### Licensing and Citation
+The content of this project itself is licensed under the [Creative Commons Attribution 3.0 license](https://creativecommons.org/licenses/by/3.0/us/deed.en_US). Please check licensing information for underlying scholarly work and R source coding. Be sure to cite package and coding content creators when applicable. 
