@@ -55,22 +55,62 @@ results <- matrix(nrow = 1000, ncol = 1)
 
 for (i in 1:1000)
 {
-     data <- nmm # swap this out for your data
-     results[i] <- kripp.alpha(data)$value
+     rows <- sample(1:4,4,replace=FALSE)  # Sample our rows, without replacement
+     columns <- sample(1:12,12,replace=TRUE)  # Sample our cols, with replacement
+     data <- nmm[rows,columns] # add our data to the random rows selection
+     results[i] <- kripp.alpha(data)$value  # store alpha scores
 }
 
 head(results)
 
-##
-##  These testing data give the same result, so plotting the bootstrap is unintuitive
-##
-#! not ran:
-quantile(results,  probs = c(.1, .5, .9))
+# checking our quantiles:
+q <- quantile(results,  probs = c(.1, .5, .9))
+q[1] # For example
 
+# Using ggplot2:
 library(ggplot2)
+
 p1 <- qplot(results)+
-     geom_vline(xintercept = , col="Red")+
-     geom_vline(xintercept = , col="Red")+
+     geom_vline(xintercept = q[1], col="Red")+
+     geom_vline(xintercept = q[3], col="Red")+
      ggtitle("1000 Bootstrapped Simulated Results")+
      xlab(" Results ")+
      theme_bw()
+p1
+
+# So this is then looking at all randomly selected variables, across random our coders (without replacement)
+# Note our results are similar to our beginning alpha score, but this is a bit more reliable, and we can see
+#  our quantiles, indicating error and possible skew.
+
+mean(results)
+
+
+
+#------- What would things looks like, if we were wrong? ----------
+
+# Quick test of some crazy data: lots of coders, not much content:
+tnmm <- t(nmm)
+kripp.alpha(tnmm)
+
+# Empty matrix, enter blank template
+results <- matrix(nrow = 10000, ncol = 1)
+
+for (i in 1:10000)
+{
+     rows <- sample(1:12,12,replace=FALSE)
+     cols <- sample(1:4,4,replace=TRUE)
+     data <- tnmm[rows,cols] 
+     results[i] <- kripp.alpha(data)$value
+}  # takes some time to compute...
+
+head(results)
+
+library(ggplot2)
+
+p1 <- qplot(results)+
+     ggtitle("1000 Bootstrapped Simulated Results")+
+     xlab("Results")+
+     theme_bw()
+p1
+
+mean(results) # Really bad
