@@ -99,7 +99,7 @@ for (i in 1:10000)
 {
      rows <- sample(1:12,12,replace=FALSE)
      cols <- sample(1:4,4,replace=TRUE)
-     data <- tnmm[rows,cols] 
+     data <- tnmm[rows,cols]
      results[i] <- kripp.alpha(data)$value
 }  # takes some time to compute...
 
@@ -113,4 +113,4 @@ p1 <- qplot(results)+
      theme_bw()
 p1
 
-mean(results) # Really bad
+mean(results) # Really bad results found here
