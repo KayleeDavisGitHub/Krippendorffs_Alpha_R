@@ -89,7 +89,7 @@ mean(results)
 #------- What would things looks like, if we were wrong? ----------
 
 # Quick test of some crazy data: lots of coders, not much content:
-tnmm <- t(nmm)
+tnmm <- t(nmm) # Let's flip everything on it's head
 kripp.alpha(tnmm)
 
 # Empty matrix, enter blank template
@@ -105,12 +105,12 @@ for (i in 1:10000)
 
 head(results)
 
+# here's what we would find:
 library(ggplot2)
-
 p1 <- qplot(results)+
      ggtitle("1000 Bootstrapped Simulated Results")+
      xlab("Results")+
      theme_bw()
 p1
 
-mean(results) # Really bad results found here
+mean(results) # Not ideal.
