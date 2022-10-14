@@ -1,6 +1,6 @@
 ####
 ##
-## Tutorial on Krippendorff's Alpha: by Kyle Davis
+## Tutorial on Krippendorff's Alpha: by Kaylee Davis
 ## Ohio State University
 ##
 ## Be sure to cite the creators article:
